@@ -22,7 +22,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           name: id_rsa
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: show env
+      - name: Show env
         run: pwd && ls -la
-      - name: test ssh
-        run: ssh user@remote ls
+      # - name: Deploy pdf
+      #   run: rsync -acvz --delete ./build/main.pdf user@remote:/path/to/deploy/
