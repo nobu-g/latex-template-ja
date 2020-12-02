@@ -4,7 +4,10 @@
 
 - latexmk
 - latexdiff
-- automatically build & deploy using GitHub Actions
+- GitHub Actions
+  - build pdf
+  - release pdf
+  - deploy pdf to a specific server over ssh
 
 ## Setup
 
