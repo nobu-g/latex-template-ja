@@ -1,17 +1,26 @@
-\documentclass{jsarticle}
+\RequirePackage{plautopatch}
+\documentclass[uplatex,dvipdfmx]{jsarticle}
 
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb}
 \usepackage{linguex}
 \usepackage{cgloss4e}
 \usepackage{bm}
-\usepackage{amsmath,amssymb}
 \usepackage{here}
 \usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage{comment}
+% \usepackage{showframe} % for debugging
 
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}  % ベクトル用太字
 \newcommand{\bs}{$\bigstar$}
+
+\begin{comment}
+Multiline comments:
+write anything about this document.
+\end{comment}
 
 
 \begin{document}

@@ -1,8 +1,8 @@
 #!/usr/bin/env perl
 
-$latex            = 'platex -synctex=1 -halt-on-error -file-line-error %O %S';
-$latex_silent     = 'platex -synctex=1 -halt-on-error -interaction=batchmode';
-$bibtex           = 'pbibtex -kanji=utf8 %O %S';
+$latex            = 'uplatex %O -synctex=1 -kanji=utf8 -halt-on-error -file-line-error %S';
+# $latex_silent     = 'uplatex -synctex=1 -halt-on-error -interaction=batchmode';
+$bibtex           = 'upbibtex -kanji=utf8 %O %S';
 $biber            = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
 $dvipdf           = 'dvipdfmx %O -o %D %S';
 $makeindex        = 'mendex %O -o %D %S';

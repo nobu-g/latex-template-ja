@@ -9,6 +9,10 @@
   - release pdf
   - deploy pdf to a specific server over ssh
 
+## Requirements
+- TexLive
+  - (macOS) `brew install --cask mactex-no-gui`
+
 ## Setup
 
 ```
