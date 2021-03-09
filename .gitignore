@@ -280,3 +280,7 @@ build/*
 # for latexdiff
 !build/*.aux
 diff
+
+
+# Node.js
+node_modules/
