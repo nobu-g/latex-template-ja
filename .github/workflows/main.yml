@@ -19,7 +19,7 @@ jobs:
       - name: Check pdf file
         run: file ./build/main.pdf | grep -q ' PDF '
       - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2.1.0
+        uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
           name: id_rsa
