@@ -281,6 +281,8 @@ build/*
 !build/*.aux
 diff
 
-
 # Node.js
 node_modules/
+
+# comment out here if you want to ignore additional settings
+!.vscode/settings.json

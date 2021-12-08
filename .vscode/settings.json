@@ -1,0 +1,59 @@
+{
+  "latex-workshop.intellisense.package.enabled": true,
+  // Added "*.synctex.gz" to the default
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.dvi",
+    "*.synctex.gz"
+  ],
+  "latex-workshop.latex.watch.delay": 1000,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "pbibtex",
+      "command": "pbibtex",
+      "args": ["%OUTDIR%/%DOCFILE%", "-kanji=utf8"]
+    },
+    {
+      "name": "dvipdfmx",
+      "command": "dvipdfmx",
+      "args": ["-o%OUTDIR%/%DOCFILE%.pdf", "%OUTDIR%/%DOCFILE%"]
+    }
+  ],
+  "latex-workshop.latex.outDir": "build",
+  "latex-workshop.message.error.show": false, // https://github.com/James-Yu/LaTeX-Workshop/issues/898
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.zoom": "page-width"
+}
