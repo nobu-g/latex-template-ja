@@ -1,0 +1,9 @@
+services:
+  texlive:
+    build: . # if you want to build the image locally
+    volumes:  # host:container
+      - ../:/workspaces/paper
+      # - ./.latexmkrc:/root/.latexmkrc
+    tty: true
+    environment:
+      SHELL: "/bin/bash"
