@@ -4,6 +4,7 @@
 
 - latexmk
 - latexdiff
+- tex-fmt
 - GitHub Actions
   - build pdf
   - release pdf
@@ -14,6 +15,8 @@
 
 - TexLive
   - (macOS) `brew install --cask mactex-no-gui`
+- tex-fmt
+  - (macOS) `brew install tex-fmt`
 - Node.js
 
 ## Setup
