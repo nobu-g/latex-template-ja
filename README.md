@@ -14,14 +14,16 @@
 
 - TexLive
   - (macOS) `brew install --cask mactex-no-gui`
-- tex-fmt
+- [tex-fmt](https://github.com/WGUNDERWOOD/tex-fmt) (optional)
   - (macOS) `brew install tex-fmt`
-- Node.js
+- [pre-commit](https://github.com/pre-commit/pre-commit) (optional)
+  - (macOS) `brew install pre-commit`
 
 ## Setup
 
 ```shell
 git config --local include.path ../.gitconfig
+pre-commit install
 ```
 
 ## Uploading Compiled PDF Files to Some Server
