@@ -6,24 +6,22 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /workdir
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     texlive-lang-japanese \
     texlive-latex-recommended \
     texlive-latex-extra \
     texlive-extra-utils \
     texlive-fonts-recommended \
-    texlive-fonts-extra \
     texlive-bibtex-extra \
     texlive-humanities \
     biber \
     latexmk \
     latexdiff \
     language-pack-ja \
-    evince \
-    xdvik-ja \
     git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+    # texlive-fonts-extra \
     # wget \
     # make \
     # perl \
