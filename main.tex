@@ -1,18 +1,30 @@
 \RequirePackage{plautopatch}
 \documentclass[uplatex,dvipdfmx]{jsarticle}
 
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
 \usepackage[dvipdfmx]{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{linguex}
-\usepackage{cgloss4e}
+\usepackage{amssymb}
+\usepackage{amsmath}
+% https://tex.stackexchange.com/questions/84481/biblatex-mincitenames-not-respected-with-authoryear
+% http://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/biblatex/doc/biblatex.pdf
+\usepackage[citestyle=authoryear,bibstyle=numeric,uniquename=false,uniquelist=false]{biblatex}
+\usepackage{booktabs}
 \usepackage{bm}
-\usepackage{here}
-\usepackage{indentfirst}
-\usepackage{multirow}
+\usepackage{cgloss4e}
+\usepackage{xurl}  % load before `hyperref`
+\usepackage[hidelinks,breaklinks,dvipdfmx]{hyperref}  % load before `cleverref`
+\usepackage{cleveref}
 \usepackage{comment}
+\usepackage{here}
+% \usepackage[utf8]{inputenc}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{tablefootnote}
+\usepackage[dvipdfmx]{xcolor}
+\usepackage{subcaption}
 % \usepackage{showframe} % for debugging
+\usepackage{pkg/linguex}
 
 \newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}  % ベクトル用太字
 \newcommand{\bs}{$\bigstar$}
@@ -39,7 +51,6 @@ write anything about this document.
 
 
 % 参考文献
-\bibliographystyle{junsrt}  % 参考文献を引用された順で出力する
-\bibliography{main}  % main.bib
+\printbibliography[heading=bibliography, title={Bibliography}]
 
 \end{document}
