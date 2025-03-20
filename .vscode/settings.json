@@ -53,6 +53,51 @@
   ],
   "latex-workshop.latex.outDir": "build",
   "latex-workshop.message.error.show": false, // https://github.com/James-Yu/LaTeX-Workshop/issues/898
+  "latex-workshop.message.latexlog.exclude":["(Font shape `(JY1|JT1|JY2|JT2)(/.*)(sl|it|sc)'.*|Some font shapes were not available.*)"],
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.view.pdf.zoom": "page-width"
+  "latex-workshop.view.pdf.zoom": "page-width",
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.formatting.latexindent.path": "/Library/TeX/Distributions/Programs/texbin/latexindent",
+  "latex-workshop.formatting.tex-fmt.path": "/opt/homebrew/bin/tex-fmt",
+  "latex-workshop.formatting.latexindent.args": [
+    "-c",
+    "%DIR%/",
+    "%TMPFILE%",
+    "-y=defaultIndent: '%INDENT%'"
+  ],
+  "latex-workshop.formatting.tex-fmt.args": [
+    "-c=%DIR%/",
+    "-y=defaultIndent: '  '"
+  ],
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  "latex-workshop.bibtex-format.align-equal.enabled": true,
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  "latex-workshop.bibtex-format.trailingComma": true,
+  "latex-workshop.bibtex-format.sortby": [
+    "year",
+    "author",
+    "title",
+  ],
+  "latex-workshop.bibtex-fields.order": [
+    "author",
+    "title",
+    "booktitle",
+    "journal",
+    "publisher",
+    "editor",
+    "month",
+    "year",
+    "address",
+    "volume",
+    "number",
+    "pages",
+    "abstract",
+    "note",
+    "eprint",
+    "archivePrefix",
+    "primaryClass",
+    "isbn",
+    "doi",
+    "url",
+  ]
 }

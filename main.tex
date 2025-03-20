@@ -15,7 +15,6 @@
 \usepackage{cleveref}
 \usepackage{comment}
 \usepackage{here}
-% \usepackage[utf8]{inputenc}
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{pifont}
@@ -26,8 +25,27 @@
 % \usepackage{showframe} % for debugging
 \usepackage{pkg/linguex}
 
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}  % ベクトル用太字
-\newcommand{\bs}{$\bigstar$}
+% biblatex
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+% https://qiita.com/shiro_takeda/items/fac1351495f32c224a28
+\ExecuteBibliographyOptions{
+  sorting=nyt,
+  sortcites=true,
+  mincitenames=1,
+  maxcitenames=2,
+  minbibnames=1,
+  maxbibnames=99,
+  date=year,
+  hyperref=true,
+  backref=false,
+  % style specific options
+  isbn=false,
+  url=false,
+  doi=false,
+  eprint=false,
+}
+
+\addbibresource[label=refs]{reference.bib}
 
 \begin{comment}
 Multiline comments:
@@ -46,6 +64,9 @@ write anything about this document.
 
 \section{はじめに}\label{sec:introduction}
 
+引用：~\textcite{latex_template_ja}
+
+括弧付き引用：~\parencite{latex_template_ja}
 
 \section{おわりに}\label{sec:conclusion}
 
