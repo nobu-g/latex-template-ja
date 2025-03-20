@@ -24,8 +24,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     make \
     perl \
+    locales \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Set locale
+RUN locale-gen en_US.UTF-8 ja_JP.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 # Initialize
 RUN kanji-config-updmap-sys auto
