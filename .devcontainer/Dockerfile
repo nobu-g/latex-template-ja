@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Initialize
 RUN kanji-config-updmap-sys ipaex \
+    && tlmgr init-usertree \
     && tlmgr update --self --all
 
 # install tex-fmt

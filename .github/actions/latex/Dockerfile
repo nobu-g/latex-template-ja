@@ -10,12 +10,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     latexmk \
     lmodern \
     texlive \
-    texlive-latex-extra \
-    texlive-extra-utils \
     texlive-lang-japanese \
     texlive-fonts-recommended \
+    texlive-latex-extra \
+    texlive-extra-utils \
     texlive-fonts-extra \
     texlive-bibtex-extra \
+    texlive-humanities \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
