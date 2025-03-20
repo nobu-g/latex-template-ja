@@ -1,0 +1,45 @@
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+% https://tex.stackexchange.com/questions/84481/biblatex-mincitenames-not-respected-with-authoryear
+% http://ftp.jaist.ac.jp/pub/CTAN/macros/latex/contrib/biblatex/doc/biblatex.pdf
+\usepackage[citestyle=authoryear,bibstyle=numeric,uniquename=false,uniquelist=false]{biblatex}
+\usepackage{booktabs}
+\usepackage{bm}
+\usepackage{cgloss4e}
+\usepackage{xurl}  % load before `hyperref`
+\usepackage[hidelinks,breaklinks,dvipdfmx]{hyperref}  % load before `cleverref`
+\usepackage{cleveref}
+\usepackage{comment}
+\usepackage{here}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{tablefootnote}
+\usepackage[dvipdfmx]{xcolor}
+\usepackage{subcaption}
+% \usepackage{showframe} % for debugging
+\usepackage{pkg/linguex}
+
+% biblatex
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+% https://qiita.com/shiro_takeda/items/fac1351495f32c224a28
+\ExecuteBibliographyOptions{
+  sorting=nyt,
+  sortcites=true,
+  mincitenames=1,
+  maxcitenames=2,
+  minbibnames=1,
+  maxbibnames=99,
+  date=year,
+  hyperref=true,
+  backref=false,
+  % style specific options
+  isbn=false,
+  url=false,
+  doi=false,
+  eprint=false,
+}
+
+\addbibresource[label=refs]{reference.bib}
