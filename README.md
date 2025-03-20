@@ -61,7 +61,7 @@ ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
 You can pull it with:
 
 ```bash
-docker pull ghcr.io/nobu-g/[repository]/latex-ja:latest
+docker pull ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
 ```
 
 ### Requirements for GitHub Actions

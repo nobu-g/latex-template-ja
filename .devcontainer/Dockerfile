@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /workdir
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     texlive-lang-japanese \
     texlive-latex-recommended \
     texlive-latex-extra \
@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     texlive-fonts-recommended \
     texlive-fonts-extra \
     texlive-bibtex-extra \
+    texlive-humanities \
     latexmk \
     latexdiff \
     language-pack-ja \
@@ -26,8 +27,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# RUN tlmgr init-usertree
-RUN kanji-config-updmap-sys ipaex
+# Initialize
+RUN kanji-config-updmap-sys ipaex \
+    && tlmgr update --self --all
 
 # install tex-fmt
 RUN wget -q https://github.com/WGUNDERWOOD/tex-fmt/releases/download/v0.5.2/tex-fmt-x86_64-linux.tar.gz \
