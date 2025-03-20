@@ -30,6 +30,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Initialize
 RUN kanji-config-updmap-sys ipaex \
     && tlmgr init-usertree \
+    && wget -q https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
+    && sh update-tlmgr-latest.sh \
     && tlmgr update --self --all
 
 # install tex-fmt
