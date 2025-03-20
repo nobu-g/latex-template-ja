@@ -9,7 +9,6 @@
   - build pdf
   - release pdf
   - deploy pdf to a specific server over ssh
-- textlint
 
 ## Requirements
 
@@ -23,7 +22,6 @@
 
 ```shell
 git config --local include.path ../.gitconfig
-npm install
 ```
 
 ## Uploading Compiled PDF Files to Some Server
@@ -51,12 +49,6 @@ Make sure the workflow permission setting (Settings > Actions > General > Workfl
 
     ```shell
     latexmk
-    ```
-
-- lint
-
-    ```shell
-    npm run -s lint
     ```
 
 ## FAQ
