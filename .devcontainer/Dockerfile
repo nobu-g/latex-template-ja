@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     evince \
     xdvik-ja \
     git \
+    wget \
     make \
     perl \
     && apt-get clean \
