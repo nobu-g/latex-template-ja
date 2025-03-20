@@ -28,17 +28,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Initialize
-RUN kanji-config-updmap-sys ipaex \
-    && tlmgr init-usertree \
-    && wget -q https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
-    && sh update-tlmgr-latest.sh \
-    && tlmgr update --self --all
+RUN kanji-config-updmap-sys auto
+# RUN tlmgr init-usertree \
+#     && wget -q https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
+#     && sh update-tlmgr-latest.sh \
+#     && tlmgr update --self --all
 
-# install tex-fmt
-RUN wget -q https://github.com/WGUNDERWOOD/tex-fmt/releases/download/v0.5.2/tex-fmt-x86_64-linux.tar.gz \
-    && tar -xzvf tex-fmt-x86_64-linux.tar.gz \
-    && mv tex-fmt /usr/local/bin/ \
-    && rm -f tex-fmt-x86_64-linux.tar.gz
+# install tex-fmt based on architecture
+RUN arch=$(uname -m) && \
+    if [ "$arch" = "x86_64" ]; then \
+        wget -q https://github.com/WGUNDERWOOD/tex-fmt/releases/download/v0.5.2/tex-fmt-x86_64-linux.tar.gz && \
+        tar -xzvf tex-fmt-x86_64-linux.tar.gz && \
+        mv tex-fmt /usr/local/bin/ && \
+        rm -f tex-fmt-x86_64-linux.tar.gz; \
+    elif [ "$arch" = "aarch64" ] || [ "$arch" = "arm64" ]; then \
+        echo "ARM64 architecture detected, skipping tex-fmt installation as it's not available for ARM64"; \
+    else \
+        echo "Unsupported architecture: $arch"; \
+        exit 1; \
+    fi
 
 VOLUME ["/workdir"]
 
