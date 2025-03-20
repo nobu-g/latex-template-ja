@@ -64,6 +64,21 @@ You can pull it with:
 docker pull ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
 ```
 
+### Building Locally
+
+If you need to build the image locally (e.g., for development or if the pre-built image doesn't work for your architecture), you can:
+
+1. Uncomment the `build: .` line and comment out the `image:` line in `.devcontainer/compose.yaml`
+2. Run `docker-compose up -d` in the `.devcontainer` directory
+
+```yaml
+services:
+  latex-ja:
+    # image: ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
+    build: . # build the image locally
+    # ...
+```
+
 ### Requirements for GitHub Actions
 
 - The repository must have "Read and write permissions" for GitHub Actions (Settings > Actions > General > Workflow permissions)

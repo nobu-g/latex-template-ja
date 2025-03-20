@@ -1,7 +1,7 @@
 services:
   latex-ja:
     image: ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
-    # build: . # if you want to build the image locally
+    # build: . # build the image locally
     volumes:  # host:container
       - ../:/workdir/paper
       # - ./.latexmkrc:/root/.latexmkrc
