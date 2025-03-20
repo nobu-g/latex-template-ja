@@ -9,6 +9,7 @@
   - build pdf
   - release pdf
   - deploy pdf to a specific server over ssh
+  - build and push Docker image to GitHub Container Registry
 
 ## Requirements
 
@@ -44,6 +45,29 @@ For details, see the instructions in [Install SSH Key](https://github.com/market
 1. Change repository permission
 
 Make sure the workflow permission setting (Settings > Actions > General > Workflow permissions) is set to "Read and write permissions".
+
+## Docker Image
+
+This repository includes a GitHub Actions workflow that automatically builds and pushes the Docker image defined in `.devcontainer/Dockerfile` to GitHub Container Registry (ghcr.io).
+
+### Accessing the Docker Image
+
+Once built, the Docker image will be available at:
+
+```text
+ghcr.io/nobu-g/latex-template-ja/latex-ja:latest
+```
+
+You can pull it with:
+
+```bash
+docker pull ghcr.io/nobu-g/[repository]/latex-ja:latest
+```
+
+### Requirements for GitHub Actions
+
+- The repository must have "Read and write permissions" for GitHub Actions (Settings > Actions > General > Workflow permissions)
+- For pull requests, the image will be built but not pushed to the registry
 
 ## Usage
 
