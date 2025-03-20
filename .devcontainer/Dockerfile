@@ -15,18 +15,19 @@ RUN apt-get update && apt-get install -y \
     texlive-fonts-extra \
     texlive-bibtex-extra \
     texlive-humanities \
+    biber \
     latexmk \
     latexdiff \
     language-pack-ja \
     evince \
     xdvik-ja \
     git \
-    wget \
-    make \
-    perl \
-    locales \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+    # wget \
+    # make \
+    # perl \
+    # locales \
 
 # # Set locale
 # RUN locale-gen en_US.UTF-8 ja_JP.UTF-8
