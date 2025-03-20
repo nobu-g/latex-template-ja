@@ -1,7 +1,7 @@
 {
     "name": "latex-template-ja",
     "dockerComposeFile": "compose.yaml",
-    "service": "texlive",
+    "service": "latex-ja",
     "workspaceFolder": "/workspaces/paper",
     "shutdownAction": "stopCompose",
     "customizations": {
