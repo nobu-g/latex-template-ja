@@ -4,7 +4,8 @@ services:
     # build: . # build the image locally
     volumes:  # host:container
       - ../:/workspaces/paper
-      # - ./.latexmkrc:/root/.latexmkrc
+      # - ./.latexmkrc:/home/user/.latexmkrc
     tty: true
     environment:
       SHELL: "/bin/bash"
+    user: user
