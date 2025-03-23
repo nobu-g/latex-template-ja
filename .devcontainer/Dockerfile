@@ -1,25 +1,12 @@
 FROM ubuntu:24.04
 
+ARG USERNAME=ubuntu
+
 LABEL description="LaTeX compilation environment with Japanese support"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Create a non-root user
-ARG USERNAME=user
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
-# Create the user
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    && apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-WORKDIR /workdir
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update -q && apt-get install -y --no-install-recommends \
     texlive-lang-japanese \
     texlive-latex-recommended \
     texlive-latex-extra \
@@ -36,22 +23,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     make \
     perl \
-    locales \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Set locale
-RUN locale-gen en_US.UTF-8 ja_JP.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US:en
-ENV LC_ALL=en_US.UTF-8
-
-# Initialize
-RUN kanji-config-updmap-sys auto
-# RUN tlmgr init-usertree \
-#     && wget -q https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
-#     && sh update-tlmgr-latest.sh \
-#     && tlmgr update --self --all
+# Configure Japanese locale
+RUN apt-get -q update && apt-get install -yq --no-install-recommends \
+    locales \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && locale-gen ja_JP.UTF-8
+ENV LANG="ja_JP.UTF-8" \
+    LANGUAGE="en_US" \
+    LC_ALL="ja_JP.UTF-8"
+RUN localedef -f UTF-8 -i ja_JP ja_JP.utf8
 
 # install tex-fmt based on architecture
 RUN arch=$(uname -m) && \
@@ -67,18 +51,22 @@ RUN arch=$(uname -m) && \
         exit 1; \
     fi
 
-VOLUME ["/workdir"]
+# Install Perl modules
+RUN apt-get update -q && apt-get install -y cpanminus \
+    && cpanm Log::Log4perl Log::Dispatch::File YAML::Tiny File::HomeDir Unicode::GCString \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Change ownership of the workdir to the non-root user
-RUN chown -R $USERNAME:$USERNAME /workdir
+
+# Initialize
+RUN kanji-config-updmap-sys auto
+# RUN tlmgr init-usertree \
+#     && wget -q https://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh \
+#     && sh update-tlmgr-latest.sh \
+#     && tlmgr update --self --all
 
 # Switch to non-root user
 USER $USERNAME
+WORKDIR /home/$USERNAME
 
 CMD ["bash"]
-
-# # 必要なPerlモジュールがある場合はコメントを外す
-# # RUN apt-get update && apt-get install -y cpanminus \
-# #     && cpanm Log::Log4perl Log::Dispatch::File YAML::Tiny File::HomeDir Unicode::GCString \
-# #     && apt-get clean \
-# #     && rm -rf /var/lib/apt/lists/*
