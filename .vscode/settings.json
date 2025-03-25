@@ -99,5 +99,8 @@
     "isbn",
     "doi",
     "url",
+  ],
+  "cSpell.words": [
+    "latexmk"
   ]
 }
