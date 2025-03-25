@@ -2,7 +2,7 @@
     "name": "latex-template-ja",
     "dockerComposeFile": "compose.yaml",
     "service": "latex-ja",
-    "workspaceFolder": "/workspaces/paper",
+    "workspaceFolder": "/home/ubuntu/work",
     "shutdownAction": "stopCompose",
     "customizations": {
         "vscode": {
