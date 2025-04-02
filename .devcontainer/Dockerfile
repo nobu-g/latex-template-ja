@@ -52,10 +52,10 @@ RUN arch=$(uname -m) && \
     fi
 
 # Install Perl modules
-RUN apt-get update -q && apt-get install -y cpanminus \
-    && cpanm Log::Log4perl Log::Dispatch::File YAML::Tiny File::HomeDir Unicode::GCString \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update -q && apt-get install -y cpanminus \
+#     && cpanm Log::Log4perl Log::Dispatch::File YAML::Tiny File::HomeDir Unicode::GCString \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
 
 
 # Initialize
